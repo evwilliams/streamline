@@ -37,4 +37,38 @@ defmodule StreamlineTest do
 
     assert result == "L"
   end
+
+  test "map" do
+    import Streamline
+
+    simple_return =
+      {:ok, "some fancy result"}
+      |> map({:ok, val} ~> val)
+
+    assert simple_return == "some fancy result"
+  end
+
+  # Code.eval_string otherwise the compiler will smartly warn the match will always fail
+  test "map raises on bad match" do
+    source =
+      """
+        import Streamline
+        {:error, "some fancy result"}
+        |> map({:ok, val} ~> val)
+      """
+
+    assert_raise MatchError, fn ->
+      Code.eval_string(source)
+    end
+  end
+
+  test "map with function" do
+    import Streamline
+
+    simple_return =
+      {:ok, "some fancy result"}
+      |> map({:ok, val} ~> String.length(val))
+
+    assert simple_return == 17
+  end
 end
