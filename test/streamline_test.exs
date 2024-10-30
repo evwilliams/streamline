@@ -71,4 +71,13 @@ defmodule StreamlineTest do
 
     assert simple_return == 17
   end
+
+  test "basic ok/error/reply/noreply functions" do
+    import Streamline
+
+    assert ok(6) == {:ok, 6}
+    assert error(6) == {:error, 6}
+    assert reply(6) == {:reply, 6}
+    assert noreply(6) == {:noreply, 6}
+  end
 end
