@@ -1,7 +1,7 @@
 defmodule Streamline do
-  defmacro as(incoming, outgoing) do
+  defmacro as(incoming, match) do
     quote do
-      unquote(outgoing) = unquote(incoming)
+      unquote(match) = unquote(incoming)
     end
   end
 
