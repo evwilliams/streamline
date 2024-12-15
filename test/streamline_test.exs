@@ -46,6 +46,7 @@ defmodule StreamlineTest do
       |> map({:ok, val} ~> val)
 
     assert simple_return == "some fancy result"
+    assert val == "some fancy result"
   end
 
   # Code.eval_string otherwise the compiler will smartly warn the match will always fail
