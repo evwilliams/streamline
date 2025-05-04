@@ -55,5 +55,5 @@ defmodule Streamline do
   def ok(val), do: {:ok, val}
   def error(val), do: {:error, val}
   def noreply(val), do: {:noreply, val}
-  def reply(val), do: {:reply, val}
+  def reply(val, msg), do: {:reply, msg, val}
 end

@@ -78,7 +78,7 @@ defmodule StreamlineTest do
 
     assert ok(6) == {:ok, 6}
     assert error(6) == {:error, 6}
-    assert reply(6) == {:reply, 6}
+    assert reply(6, :ok) == {:reply, :ok, 6}
     assert noreply(6) == {:noreply, 6}
   end
 end
