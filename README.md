@@ -47,7 +47,7 @@ Allows variable to be captured in the pipeline, similar to `as/2`.
 IO.inspect(result) # Prints the value of result captured in the pipeline
 ```
 
-### `then_if/3` and `then_if/4` - Conditional pipeline branching
+### `then_if/3` - Conditional pipeline branching
 
 ```elixir
 "hello"
@@ -68,6 +68,6 @@ value
 ```elixir
 ok(value)     # Returns {:ok, value}
 error(value)  # Returns {:error, value}
-reply(value)  # Returns {:reply, value}
+reply(value, msg)  # Returns {:reply, msg, value}
 noreply(value) # Returns {:noreply, value}
 ```
